@@ -1,0 +1,23 @@
+service: s3signing
+
+provider:
+  name: aws
+  runtime: python3.6
+  stage: us-east-1
+  role: arn:aws:iam::{aws-account}:role/ns-role 
+
+plugins:
+  - serverless-python-requirements
+
+functions:
+  s3selfsigned:
+      name: s3selfsigned
+      handler: lambda_function.lambda_handler
+      events:
+      - http:
+          path: /getmyfiles
+          method: get
+
+package:
+  exclude:
+    - abc/** # virtualenv
