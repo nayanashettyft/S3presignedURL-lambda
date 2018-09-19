@@ -8,4 +8,4 @@ Deployment using serverless:
 sls deploy --aws-profile {aws profile name}
 ```
 
-Call the generated URL from slack /gets3URL file={filename},time=5
+Call the generated URL from slack /gets3URL file={filename},time={time in minutes}
